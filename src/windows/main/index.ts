@@ -4,6 +4,7 @@ import {
   MenuItemConstructorOptions,
   Tray,
 } from "electron";
+import PreferencesStore from "utils/preferencesStore";
 
 class MainWindow {
   private browserWindow: BrowserWindow;
@@ -37,6 +38,9 @@ class MainWindow {
     this.tray.setIgnoreDoubleClickEvents(true);
     this.tray.on("click", this.toggleWindow);
     this.tray.on("right-click", this.rightClickMenu);
+
+    PreferencesStore.set("test", "world");
+    console.log(PreferencesStore.get("test", "defaultValue"));
   }
 
   getWindowPosition = (): { x: number; y: number } => {
