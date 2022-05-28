@@ -4,7 +4,7 @@ import {
   MenuItemConstructorOptions,
   Tray
 } from "electron";
-import PreferencesStore from "utils/preferencesStore";
+import PreferencesStore from "@utils/preferencesStore";
 
 class MainWindow {
   private browserWindow: BrowserWindow;

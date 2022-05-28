@@ -14,9 +14,9 @@
     "typeRoots": ["node_modules/@types", "types/*.d.ts"],
     "paths": {
       "*": ["node_modules/*"],
-      "src/*": ["src/*"],
-      "utils/*": ["src/utils/*"],
-      "windows/*": ["src/windows/*"]
+      "@workers/*": ["src/workers/*"],
+      "@utils/*": ["src/utils/*"],
+      "@windows/*": ["src/windows/*"]
     }
   },
   "include": ["src/**/*"]

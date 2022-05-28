@@ -1,6 +1,6 @@
 import { app, BrowserWindow, Tray } from "electron";
 import MainWindow from "./windows/main";
-import { runTimer } from "src/workers/timer";
+import { runTimer } from "@workers/timer";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
