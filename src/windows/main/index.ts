@@ -2,8 +2,9 @@ import {
   BrowserWindow,
   Menu,
   MenuItemConstructorOptions,
-  Tray,
+  Tray
 } from "electron";
+import PreferencesStore from "utils/preferencesStore";
 
 class MainWindow {
   private browserWindow: BrowserWindow;
@@ -29,14 +30,18 @@ class MainWindow {
         nodeIntegrationInWorker: true,
       },
     });
+
     // and load the index.html of the app.
     this.browserWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
     // Open the DevTools.
-    // this.browserWindow.webContents.openDevTools({ mode: "detach" });
+    this.browserWindow.webContents.openDevTools({ mode: "detach" });
 
     this.tray.setIgnoreDoubleClickEvents(true);
     this.tray.on("click", this.toggleWindow);
     this.tray.on("right-click", this.rightClickMenu);
+
+    PreferencesStore.set("test", "world");
+    // console.log(PreferencesStore.get("test", "defaultValue"));
   }
 
   getWindowPosition = (): { x: number; y: number } => {
