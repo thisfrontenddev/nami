@@ -60,6 +60,9 @@
           }
         ]
       ]
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "devDependencies": {
@@ -74,8 +77,10 @@
     "@typescript-eslint/parser": "^5.26.0",
     "@vercel/webpack-asset-relocator-loader": "^1.7.0",
     "css-loader": "^6.7.1",
+    "cz-conventional-changelog": "^3.3.0",
     "electron": "19.0.1",
     "eslint": "^8.16.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "fork-ts-checker-webpack-plugin": "^6.5.2",
     "node-loader": "^2.0.0",

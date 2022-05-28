@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./components/App";
 
 function render() {
-  ReactDOM.render(<App />, document.body);
+  ReactDOM.render(<App />, document.getElementById("app"));
 }
 
 console.log(
