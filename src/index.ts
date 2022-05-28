@@ -1,5 +1,6 @@
 import { app, BrowserWindow, Tray } from "electron";
 import MainWindow from "./windows/main";
+import { runTimer } from "src/workers/timer";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -7,16 +8,18 @@ if (require("electron-squirrel-startup")) {
   app.quit();
 }
 
-let tray: Tray = null;
-let mainWindow: MainWindow = null;
+let tray: Tray;
+let mainWindow: MainWindow;
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   tray = new Tray("src/assets/IconTemplate@2x.png");
   mainWindow = new MainWindow(tray);
   mainWindow.init();
+  const message = await runTimer();
+  console.log("message from promise", message);
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
